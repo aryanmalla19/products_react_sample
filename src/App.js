@@ -1,17 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState } from 'react';
-
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Products from "./pages/products";
+import { Home } from "./pages/home/home";
+import { Nav } from "./components/Nav";
 
 function App() {
-  const [search,setSearch]= useState('');
-  const handleChange=(e)=>{
-    setSearch(e.target.value);
-  }
-  return (
-    <div className="app">
-    <input onChange={handleChange} value={search} placeholder='Search' />
-    </div>
+  return(
+  <div>
+    <Nav />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/products" element={<Products />} />
+    </Routes>
+  </div>
   );
 }
 
